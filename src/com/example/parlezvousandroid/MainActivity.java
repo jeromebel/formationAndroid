@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
 			String usernameStr = usernameField.getText().toString();
 			String passwordStr = passwordField.getText().toString();
 
-			String url = "http://dev.loicortola.com/parlez-vous-android/connect/"
+			String url = "http://parlezvous.herokuapp.com/connect/"
 					+ usernameStr + "/" + passwordStr;
 
 			DefaultHttpClient client = new DefaultHttpClient();
@@ -173,7 +173,7 @@ public class MainActivity extends Activity {
 				Toast.makeText(getBaseContext(), "c'est bon ",
 						Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(getApplicationContext(),
-						Logged.class);
+						ListMessagesActivity.class);
 				intent.putExtra("username", usernameField.getText().toString());
 				intent.putExtra("password", passwordField.getText().toString());
 				startActivity(intent);
@@ -181,6 +181,8 @@ public class MainActivity extends Activity {
 			} else
 				Toast.makeText(getBaseContext(), "c'est mauvais ",
 						Toast.LENGTH_SHORT).show();
+			
+			task=null;
 		}
 		
 	}
